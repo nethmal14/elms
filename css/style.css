@@ -252,51 +252,10 @@ main, .main-content { flex: 1; }
 .flex-stack { display: flex; flex-direction: column; gap: 0.75rem; /* Increased gap */ }
 .flex-between { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
 
-/* Spacing utilities - updated values for consistency */
-.mb-1 { margin-bottom: 0.25rem; }
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-4 { margin-bottom: 1rem; }
-.mb-6 { margin-bottom: 1.5rem; }
-.mb-8 { margin-bottom: 2rem; }
-.mb-10 { margin-bottom: 2.5rem; }
-.mb-12 { margin-bottom: 3rem; }
-.mt-4 { margin-top: 1rem; }
-.mt-8 { margin-top: 2rem; }
-.mt-12 { margin-top: 3rem; }
-.mt-auto { margin-top: auto; }
-.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
-.py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
-.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
-.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
-.pt-6 { padding-top: 1.5rem; }
-.pt-8 { padding-top: 2rem; }
-
-/* Flexbox utilities */
-.flex { display: flex; }
-.flex-col { flex-direction: column; }
-.flex-1 { flex: 1; }
-.flex-center { display: flex; align-items: center; justify-content: center; }
-.items-center { align-items: center; }
-.gap-1 { gap: 0.25rem; }
-.gap-2 { gap: 0.5rem; }
-.gap-3 { gap: 0.75rem; }
-.gap-8 { gap: 2rem; }
-
-/* Text utilities */
-.text-center { text-align: center; }
-.text-right { text-align: right; }
-.text-secondary { color: var(--text-secondary); }
-.font-bold { font-weight: 700 !important; }
-.font-semibold { font-weight: 600 !important; }
-.font-extrabold { font-weight: 800 !important; }
-
-/* Added more Notion-like utility classes */
+/* Spacing utilities */
 .m-0 { margin: 0 !important; }
-.mt-2 { margin-top: 0.5rem !important; }
-.mt-4 { margin-top: 1rem !important; }
-.mt-5 { margin-top: 1.25rem !important; }
-.mt-6 { margin-top: 1.5rem !important; }
 .mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: 0.25rem !important; }
 .mb-2 { margin-bottom: 0.5rem !important; }
 .mb-4 { margin-bottom: 1rem !important; }
 .mb-5 { margin-bottom: 1.25rem !important; }
@@ -305,22 +264,48 @@ main, .main-content { flex: 1; }
 .mb-10 { margin-bottom: 2.5rem !important; }
 .mb-12 { margin-bottom: 3rem !important; }
 .mb-14 { margin-bottom: 3.5rem !important; }
-
+.mt-2 { margin-top: 0.5rem !important; }
+.mt-4 { margin-top: 1rem !important; }
+.mt-5 { margin-top: 1.25rem !important; }
+.mt-6 { margin-top: 1.5rem !important; }
+.mt-8 { margin-top: 2rem !important; }
+.mt-12 { margin-top: 3rem !important; }
+.mt-auto { margin-top: auto !important; }
 .p-0 { padding: 0 !important; }
 .p-5 { padding: 1.25rem !important; }
 .p-8 { padding: 2rem !important; }
 .p-10 { padding: 2.5rem !important; }
 .p-20 { padding: 5rem !important; }
 .p-24 { padding: 6rem !important; }
+.py-8 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+.py-10 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+.py-12 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+.py-20 { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+.pt-6 { padding-top: 1.5rem !important; }
+.pt-8 { padding-top: 2rem !important; }
 
-.inline-block { display: inline-block !important; }
-
+/* Flexbox utilities */
 .flex { display: flex !important; }
 .flex-col { flex-direction: column !important; }
+.flex-1 { flex: 1 !important; }
 .flex-wrap { flex-wrap: wrap !important; }
+.flex-center { display: flex !important; align-items: center !important; justify-content: center !important; }
 .items-center { align-items: center !important; }
+.gap-1 { gap: 0.25rem !important; }
 .gap-2 { gap: 0.5rem !important; }
 .gap-3 { gap: 0.75rem !important; }
+.gap-8 { gap: 2rem !important; }
+
+/* Text utilities */
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+.font-bold { font-weight: 700 !important; }
+.font-semibold { font-weight: 600 !important; }
+.font-extrabold { font-weight: 800 !important; }
+
+/* Extra utility classes */
+.inline-block { display: inline-block !important; }
 .gap-4 { gap: 1rem !important; }
 .gap-5 { gap: 1.25rem !important; }
 .gap-6 { gap: 1.5rem !important; }
