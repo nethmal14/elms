@@ -32,7 +32,7 @@ if (!empty($tenant['custom_homepage_html'])):
 
 else: ?>
 
-<link rel="stylesheet" href="<?= SITE_ROOT ?>css/home.css">
+<link rel="stylesheet" href="<?= SITE_ROOT ?>css/home.css?v=<?= filemtime(__DIR__ . '/css/home.css') ?>">
 
 
 <!-- Hero Section -->
