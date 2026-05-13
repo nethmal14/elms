@@ -1,0 +1,99 @@
+/* Student ID Card shine effect */
+.nic-card {
+  position: relative; overflow: hidden; cursor: default;
+  background: var(--gray-900); border-radius: var(--radius-2xl);
+  color: #fff; min-height: 260px; border: none;
+}
+.nic-card::after {
+  content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%);
+  transform: skewX(-15deg); transition: left 0.7s var(--ease); pointer-events: none;
+}
+.nic-card:hover::after { left: 150%; }
+.nic-card-bg { position: absolute; inset: 0; background: radial-gradient(at 0% 0%, hsla(217, 91%, 60%, 0.1) 0, transparent 50%); }
+.nic-card-content { position: relative; z-index: 2; padding: 24px; height: 100%; display: flex; flex-direction: column; }
+.nic-site-name { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; color: #fff; }
+.nic-tag { font-size: 10px; color: var(--gray-400); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+.nic-qr-small { background: #fff; padding: 4px; border-radius: var(--radius-sm); cursor: pointer; }
+.nic-user-row { display: flex; gap: 1.25rem; margin-bottom: 1.5rem; }
+.nic-photo { width: 70px; height: 85px; border-radius: var(--radius-md); object-fit: cover; background: var(--gray-800); }
+.nic-photo-placeholder { width: 70px; height: 85px; border-radius: var(--radius-md); background: var(--gray-800); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: var(--gray-600); }
+.nic-username { color: #fff; font-size: 1.25rem; margin-bottom: 2px; }
+.nic-grade { color: var(--blue-400); font-weight: 600; font-size: 0.85rem; }
+.nic-details { margin-top: 0.75rem; font-size: 0.75rem; color: var(--gray-400); }
+.nic-detail-item { display: flex; gap: 0.5rem; margin-bottom: 2px; }
+.nic-detail-label { width: 45px; flex-shrink: 0; }
+.nic-detail-value { color: var(--gray-200); }
+.nic-id-label { font-size: 9px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 2px; }
+.nic-id-value { font-family: var(--font-mono); font-size: 1.5rem; letter-spacing: 3px; font-weight: 700; color: #fff; }
+
+.section-title { font-size: 1.1rem; }
+.chart-container { height: 180px; }
+
+.paper-alert-card { border-left: 3px solid var(--blue-500); }
+.paper-subject-tag { font-size: 10px; color: var(--blue-600); font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+.paper-title { font-size: 0.95rem; margin-bottom: 8px; }
+.paper-due { display: flex; align-items: center; gap: 4px; font-size: 0.8rem; color: var(--text-tertiary); }
+
+.subject-desc { font-size: 0.85rem; min-height: 2.5rem; }
+.subject-price { font-weight: 700; margin-bottom: 12px; font-size: 1rem; }
+
+.qr-modal { position: fixed; inset: 0; background: rgba(17,17,24,0.95); z-index: 1000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); cursor: pointer; }
+.qr-modal-card { padding: 2.5rem; text-align: center; border: none; background: #fff; border-radius: var(--radius-xl); }
+.qr-modal-title { color: var(--gray-900); font-weight: 700; font-size: 1.1rem; margin: 1.5rem 0 0.25rem; }
+.qr-modal-subtitle { color: var(--gray-500); font-size: 0.85rem; margin: 0; }
+
+
+.subject-card { position: relative; overflow: hidden; padding-left: 1.75rem !important; }
+.subject-card::before {
+  content: ''; position: absolute; left: 0; top: 20%; bottom: 20%; width: 3px;
+  background: var(--blue-500); border-radius: 0 3px 3px 0; transition: top var(--t), bottom var(--t);
+}
+.subject-card:hover::before { top: 10%; bottom: 10%; }
+
+/* Notifications */
+.notif-row {
+  display: flex; gap: 1.25rem; padding: 1.25rem;
+  border-radius: var(--radius-xl); background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  transition: all var(--t-fast) var(--ease);
+  position: relative; overflow: hidden;
+}
+.notif-row:hover {
+  background: var(--surface-hover); border-color: var(--blue-200);
+}
+.notif-row.unread::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--blue-600);
+}
+
+.notif-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--blue-50); color: var(--blue-600);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+@media (prefers-color-scheme: dark) {
+    .notif-icon { background: rgba(59,130,246,0.1); color: var(--blue-400); }
+}
+
+.notif-dot {
+  width: 8px; height: 8px; background: var(--blue-600); border-radius: 50%;
+}
+
+/* Payment */
+.payment-instructions-block {
+  background: var(--blue-50);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.payment-instructions-block h4 { color: var(--blue-700); margin-bottom: 0.75rem; }
+.instruction-text { font-size: 0.95rem; color: var(--gray-600); line-height: 1.6; }
+
+@media (prefers-color-scheme: dark) {
+    .payment-instructions-block { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.2); }
+    .payment-instructions-block h4 { color: var(--blue-300); }
+    .instruction-text { color: var(--gray-300); }
+}

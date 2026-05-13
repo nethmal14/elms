@@ -1,0 +1,120 @@
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <a href="index.php" class="header-logo">
+      <span class="logo-mark">E</span>
+      <span class="logo-text"><?= htmlspecialchars($site_name ?? 'Elms') ?></span>
+    </a>
+
+    <!-- Desktop nav links (center) -->
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="index.php"       class="header-nav-link <?= $currentPage==='index.php'?'active':'' ?>">Home</a>
+      <a href="courses.php"     class="header-nav-link <?= $currentPage==='courses.php'?'active':'' ?>">Courses</a>
+      <?php if(isset($_SESSION['user_id'])): ?>
+      <a href="dashboard.php"   class="header-nav-link <?= $currentPage==='dashboard.php'?'active':'' ?>">Dashboard</a>
+      <a href="papers.php"      class="header-nav-link <?= $currentPage==='papers.php'?'active':'' ?>">Papers</a>
+      <a href="rankings.php"    class="header-nav-link <?= $currentPage==='rankings.php'?'active':'' ?>">Rankings</a>
+      <?php endif; ?>
+    </nav>
+
+    <!-- Right side -->
+    <div class="header-actions">
+      <?php if(isset($_SESSION['user_id'])): ?>
+        <!-- Notifications bell with badge -->
+        <a href="notifications.php" class="btn btn-ghost btn-icon header-bell" title="Notifications">
+          [bell icon]
+          <?php if($unreadCount > 0): ?>
+          <span class="notif-dot"><?= $unreadCount ?></span>
+          <?php endif; ?>
+        </a>
+        <!-- User pill -->
+        <div class="header-user-pill">
+          <div class="header-avatar"><?= strtoupper(substr($_SESSION['username'],0,1)) ?></div>
+          <span class="header-username"><?= htmlspecialchars($_SESSION['username']) ?></span>
+          <!-- Dropdown arrow -->
+          <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="6,9 12,15 18,9"/></svg>
+          <!-- Dropdown menu -->
+          <div class="header-dropdown">
+            <?php if($_SESSION['role']==='admin'): ?>
+            <a href="admin/index.php" class="dropdown-item">[settings icon] Admin Panel</a>
+            <?php endif; ?>
+            <a href="notifications.php" class="dropdown-item">[bell icon] Notifications</a>
+            <div class="dropdown-divider"></div>
+            <a href="logout.php" class="dropdown-item dropdown-item-danger">[logout icon] Log out</a>
+          </div>
+        </div>
+      <?php else: ?>
+        <a href="login.php" class="btn btn-ghost btn-sm">Log in</a>
+        <a href="register.php" class="btn btn-primary btn-sm">Get started</a>
+      <?php endif; ?>
+
+      <!-- Mobile menu toggle — DESKTOP HIDDEN -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        [hamburger icon — see icon system above]
+      </button>
+    </div>
+
+  </div><!-- /header-inner -->
+
+  <!-- Mobile nav — slides DOWN from header, not up from bottom -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-inner">
+      <a href="index.php"   class="mobile-nav-link">Home</a>
+      <a href="courses.php" class="mobile-nav-link">Courses</a>
+      <?php if(isset($_SESSION['user_id'])): ?>
+      <a href="dashboard.php"       class="mobile-nav-link">Dashboard</a>
+      <a href="papers.php"          class="mobile-nav-link">Papers</a>
+      <a href="rankings.php"        class="mobile-nav-link">Rankings</a>
+      <a href="notifications.php"   class="mobile-nav-link">Notifications</a>
+      <?php if($_SESSION['role']==='admin'): ?>
+      <a href="admin/index.php"     class="mobile-nav-link">Admin Panel</a>
+      <?php endif; ?>
+      <div class="mobile-nav-divider"></div>
+      <a href="logout.php" class="mobile-nav-link mobile-nav-link-danger">Log out</a>
+      <?php else: ?>
+      <div class="mobile-nav-divider"></div>
+      <a href="login.php"    class="mobile-nav-link">Log in</a>
+      <a href="register.php" class="mobile-nav-link mobile-nav-link-primary">Get started</a>
+      <?php endif; ?>
+    </div>
+  </div>
+
+</header>
+<script>
+(function() {
+  // Scroll shadow
+  var header = document.getElementById('site-header');
+  function onScroll() {
+    header.classList.toggle('is-scrolled', window.scrollY > 8);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu toggle — SLIDES DOWN
+  var btn = document.getElementById('mobile-menu-btn');
+  var nav = document.getElementById('mobile-nav');
+  if (btn && nav) {
+    btn.addEventListener('click', function() {
+      var open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+      nav.setAttribute('aria-hidden', String(!open));
+    });
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (!header.contains(e.target)) {
+        nav.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        nav.setAttribute('aria-hidden', 'true');
+      }
+    });
+    // Close on nav link click
+    nav.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        nav.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+})();
+</script>

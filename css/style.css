@@ -1,0 +1,1102 @@
+/* ============================================================
+   ELMS Design System — Notion Inspired
+   ============================================================ */
+
+:root {
+  /* ── Brand blues (Notion's primary accent blue) ── */
+  --blue-50:   #e0efff; /* Lighter blue for subtle elements */
+  --blue-100:  #c0e0ff;
+  --blue-200:  #a0d0ff;
+  --blue-300:  #80c0ff;
+  --blue-400:  #50a0ff;
+  --blue-500:  #3388ff;   /* primary action - a cleaner, brighter blue */
+  --blue-600:  #2563eb;   /* primary hover - slightly darker for interaction */
+  --blue-700:  #1d4ed8;
+  --blue-800:  #1e40af;
+  --blue-900:  #1e3a8a;
+
+  /* ── Neutrals (Notion's core grayscale palette) ── */
+  --gray-0:    #ffffff;
+  --gray-25:   #fcfcfc;
+  --gray-50:   #f7f7f7;   /* page bg - very subtle off-white */
+  --gray-100:  #ededed;   /* light backgrounds, subtle borders */
+  --gray-200:  #e0e0e0;   /* default border */
+  --gray-300:  #cccccc;
+  --gray-400:  #b0b0b0;   /* text tertiary, subtle icons */
+  --gray-500:  #909090;   /* text secondary */
+  --gray-600:  #6a6a6a;
+  --gray-700:  #444444;   /* text primary - softer black */
+  --gray-800:  #2a2a2a;
+  --gray-900:  #1a1a1a;
+
+  /* ── Semantic status (aligned with Notion's more muted tones) ── */
+  --green-50:  #e6f7ed;
+  --green-500: #27ae60;
+  --green-600: #219653;
+  --green-700: #1a7a42;
+
+  --yellow-50:  #fffbe6;
+  --yellow-500: #f1c40f;
+  --yellow-600: #d4ac0d;
+
+  --red-50:   #ffe6e6;
+  --red-500:  #e74c3c;
+  --red-600:  #cc3d2f;
+
+  /* ── Semantic aliases ── */
+  --color-primary:        var(--blue-500);
+  --color-primary-hover:  var(--blue-600);
+  --color-primary-subtle: var(--blue-50);
+  --color-primary-border: var(--blue-200);
+
+  --color-success:        var(--green-600);
+  --color-success-subtle: var(--green-50);
+  --color-warning:        var(--yellow-600);
+  --color-warning-subtle: var(--yellow-50);
+  --color-danger:         var(--red-600);
+  --color-danger-subtle:  var(--red-50);
+
+  /* ── Surfaces (light mode) ── */
+  --surface-page:    var(--gray-50);    /* Lightest off-white for body background */
+  --surface-card:    var(--gray-0);     /* Pure white for cards/elements */
+  --surface-raised:  var(--gray-0);
+  --surface-subtle:  var(--gray-25);    /* Slightly off-white for subtler elements */
+  --surface-hover:   var(--gray-100);   /* Light gray for hover states */
+  --surface-muted:   var(--gray-100);   /* Used for muted backgrounds like table headers, selected states */
+
+  /* ── Text (light mode) ── */
+  --text-primary:   var(--gray-700);
+  --text-secondary: var(--gray-500);
+  --text-tertiary:  var(--gray-400);
+  --text-on-blue:   #ffffff; /* White text on blue backgrounds */
+
+  /* ── Borders (light mode) ── */
+  --border-default: var(--gray-200); /* Standard border */
+  --border-subtle:  var(--gray-100); /* Lighter border for internal elements */
+  --border-strong:  var(--gray-300); /* Stronger border for focus/active states */
+  --border-focus:   var(--blue-500); /* Blue focus border */
+
+  /* ── Shadows (Notion's soft, diffused shadows) ── */
+  --shadow-xs:  0 1px 2px rgba(0,0,0,0.06);
+  --shadow-sm:  0 2px 4px rgba(0,0,0,0.08);
+  --shadow-md:  0 4px 8px rgba(0,0,0,0.1);
+  --shadow-lg:  0 8px 16px rgba(0,0,0,0.12);
+  --shadow-xl:  0 12px 24px rgba(0,0,0,0.15);
+
+  /* ── Radius (slightly more generous for Notion feel) ── */
+  --radius-xs:  4px;
+  --radius-sm:  6px;
+  --radius-md:  8px;
+  --radius-lg:  10px;
+  --radius-xl:  12px;
+  --radius-2xl: 16px;
+  --radius-full: 9999px;
+
+  /* ── Typography ── */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* ── Timing ── */
+  --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:  cubic-bezier(0, 0, 0.2, 1);
+  --ease-in:   cubic-bezier(0.4, 0, 1, 1);
+  --t-fast:    120ms;
+  --t:         200ms;
+  --t-slow:    350ms;
+
+  /* ── Layout ── */
+  --nav-height:    56px;
+  --container-max: 1160px;
+  --sidebar-width: 240px; /* Slightly wider for Notion */
+
+  /* ── Backward-compat aliases used in PHP-generated markup ── */
+  --primary-color:   var(--blue-500);
+  --accent-color:    var(--red-500);
+  --bg-color:        var(--surface-page);
+  --surface-color:   var(--surface-card);
+  --hover-bg:        var(--surface-hover);
+  --border-color:    var(--border-default);
+  --border-light:    var(--border-subtle);
+  --border-radius:   var(--radius-xl); /* Adjusted for Notion */
+  --border-width:    1px;
+  --border-radius-sm: var(--radius-lg); /* Adjusted for Notion */
+}
+
+/* ── Dark mode (Media Query + Attribute) ── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface-page:    #191919; /* Dark gray for body background */
+    --surface-card:    #2a2a2a; /* Slightly lighter dark gray for cards/elements */
+    --surface-raised:  #333333;
+    --surface-subtle:  #1e1e1e; /* Darker subtle background */
+    --surface-hover:   #333333; /* Darker gray for hover states */
+    --surface-muted:   #333333; /* Consistent muted dark background */
+
+    --text-primary:    #e0e0e0; /* Light gray for primary text */
+    --text-secondary:  #b0b0b0; /* Mid gray for secondary text */
+    --text-tertiary:   #909090; /* Darker gray for tertiary text */
+
+    --border-default:  #444444; /* Darker border */
+    --border-subtle:   #333333;
+    --border-strong:   #555555;
+
+    --color-primary-subtle: rgba(51, 136, 255, 0.15); /* Blue with transparency */
+    --color-primary-border: rgba(51, 136, 255, 0.3);
+  }
+}
+
+[data-theme="dark"] {
+    --surface-page:    #191919;
+    --surface-card:    #2a2a2a;
+    --surface-raised:  #333333;
+    --surface-subtle:  #1e1e1e;
+    --surface-hover:   #333333;
+    --surface-muted:   #333333;
+
+    --text-primary:    #e0e0e0;
+    --text-secondary:  #b0b0b0;
+    --text-tertiary:   #909090;
+
+    --border-default:  #444444;
+    --border-subtle:   #333333;
+    --border-strong:   #555555;
+
+    --color-primary-subtle: rgba(51, 136, 255, 0.15);
+    --color-primary-border: rgba(51, 136, 255, 0.3);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 15px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--surface-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700; /* Slightly bolder for Notion feel */
+  line-height: 1.25;
+  color: var(--text-primary);
+  letter-spacing: -0.02em; /* Tighter letter spacing */
+}
+h1 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.15rem; font-weight: 600; }
+h5 { font-size: 1rem; font-weight: 600; }
+
+p { color: var(--text-secondary); line-height: 1.7; }
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+/* Notion-style scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300); /* Muted gray for thumb */
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem; /* Increased padding */
+}
+
+main, .main-content { flex: 1; }
+
+.grid { display: grid; gap: 1.5rem; /* Increased gap */ }
+.grid-cols-1 { grid-template-columns: 1fr; }
+.grid-cols-2 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); } /* Adjusted minmax */
+.grid-cols-3 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); } /* Adjusted minmax */
+
+@media (max-width: 600px) {
+  .grid-cols-2,
+  .grid-cols-3 { grid-template-columns: 1fr; }
+}
+
+.flex-stack { display: flex; flex-direction: column; gap: 0.75rem; /* Increased gap */ }
+.flex-between { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+
+/* Spacing utilities - updated values for consistency */
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-12 { margin-top: 3rem; }
+.mt-auto { margin-top: auto; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+.pt-6 { padding-top: 1.5rem; }
+.pt-8 { padding-top: 2rem; }
+
+/* Flexbox utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-1 { flex: 1; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.items-center { align-items: center; }
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-8 { gap: 2rem; }
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-secondary { color: var(--text-secondary); }
+.font-bold { font-weight: 700 !important; }
+.font-semibold { font-weight: 600 !important; }
+.font-extrabold { font-weight: 800 !important; }
+
+/* Added more Notion-like utility classes */
+.m-0 { margin: 0 !important; }
+.mt-2 { margin-top: 0.5rem !important; }
+.mt-4 { margin-top: 1rem !important; }
+.mt-5 { margin-top: 1.25rem !important; }
+.mt-6 { margin-top: 1.5rem !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.mb-2 { margin-bottom: 0.5rem !important; }
+.mb-4 { margin-bottom: 1rem !important; }
+.mb-5 { margin-bottom: 1.25rem !important; }
+.mb-6 { margin-bottom: 1.5rem !important; }
+.mb-8 { margin-bottom: 2rem !important; }
+.mb-10 { margin-bottom: 2.5rem !important; }
+.mb-12 { margin-bottom: 3rem !important; }
+.mb-14 { margin-bottom: 3.5rem !important; }
+
+.p-0 { padding: 0 !important; }
+.p-5 { padding: 1.25rem !important; }
+.p-8 { padding: 2rem !important; }
+.p-10 { padding: 2.5rem !important; }
+.p-20 { padding: 5rem !important; }
+.p-24 { padding: 6rem !important; }
+
+.inline-block { display: inline-block !important; }
+
+.flex { display: flex !important; }
+.flex-col { flex-direction: column !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.items-center { align-items: center !important; }
+.gap-2 { gap: 0.5rem !important; }
+.gap-3 { gap: 0.75rem !important; }
+.gap-4 { gap: 1rem !important; }
+.gap-5 { gap: 1.25rem !important; }
+.gap-6 { gap: 1.5rem !important; }
+.flex-between-center { display: flex !important; justify-content: space-between !important; align-items: center !important; }
+.flex-between-end { display: flex !important; justify-content: space-between !important; align-items: flex-end !important; }
+.flex-end-gap-2 { display: flex !important; justify-content: flex-end !important; gap: 0.5rem !important; }
+.flex-end-gap-3 { display: flex !important; justify-content: flex-end !important; gap: 0.75rem !important; }
+.flex-center-gap-3 { display: flex !important; align-items: center !important; gap: 0.75rem !important; }
+.flex-center-gap-4 { display: flex !important; align-items: center !important; gap: 1rem !important; }
+.flex-center-gap-5 { display: flex !important; align-items: center !important; gap: 1.25rem !important; }
+
+.text-xs { font-size: 0.75rem !important; }
+.text-sm { font-size: 0.875rem !important; }
+.text-lg { font-size: 1.125rem !important; }
+.text-xl { font-size: 1.25rem !important; }
+.text-2xl { font-size: 1.5rem !important; }
+.text-4xl { font-size: 2.25rem !important; }
+
+.relative { position: relative !important; }
+.absolute { position: absolute !important; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+
+/* ============================================================
+   CARD / GLASS-PANEL (Notion-like)
+   ============================================================ */
+
+.card, .glass-panel {
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl); /* Larger radius */
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm); /* Softer shadow */
+  transition:
+    border-color var(--t) var(--ease),
+    box-shadow var(--t) var(--ease);
+}
+
+.card:hover, .glass-panel:hover {
+  border-color: var(--border-strong); /* Slight darkening on hover */
+  box-shadow: var(--shadow-md); /* Slightly more prominent shadow on hover */
+}
+
+/* ============================================================
+   BUTTONS (Notion-like)
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Increased gap */
+  padding: 0.6rem 1.2rem; /* Adjusted padding */
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 0.9rem; /* Slightly larger font */
+  font-weight: 500;
+  line-height: 1;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease),
+    box-shadow var(--t-fast) var(--ease),
+    transform var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease);
+  -webkit-user-select: none;
+  user-select: none;
+  position: relative;
+}
+
+.btn:active { transform: scale(0.98); }
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-subtle); /* Focus ring using subtle blue */
+}
+
+/* Icon inside button */
+.btn svg, .btn .btn-icon {
+  width: 16px; /* Slightly larger icon */
+  height: 16px;
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+/* Primary — solid blue */
+.btn-primary {
+  background: var(--blue-500);
+  color: #fff;
+  border-color: var(--blue-500); /* Solid border */
+}
+.btn-primary:hover {
+  background: var(--blue-600);
+  border-color: var(--blue-600);
+  box-shadow: var(--shadow-sm); /* Soft shadow on hover */
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Secondary — subtle, light background */
+.btn-secondary {
+  background: var(--surface-subtle); /* Lighter background */
+  color: var(--text-primary);
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-xs);
+}
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+/* Ghost — no bg, subtle hover */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+}
+.btn-ghost:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+/* Danger */
+.btn-danger {
+  background: var(--red-600);
+  color: #fff;
+  border-color: var(--red-600);
+}
+.btn-danger:hover {
+  background: var(--red-700);
+  border-color: var(--red-700);
+  box-shadow: var(--shadow-sm);
+  color: #fff;
+}
+
+/* Sizes */
+.btn-sm {
+  padding: 0.3rem 0.7rem; /* Adjusted padding */
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+.btn-sm svg, .btn-sm .btn-icon { width: 14px; height: 14px; } /* Adjusted icon size */
+
+.btn-lg {
+  padding: 0.8rem 1.6rem; /* Adjusted padding */
+  font-size: 1rem;
+  border-radius: var(--radius-lg);
+}
+
+.btn-block { width: 100%; }
+
+/* Icon-only button */
+.btn-icon {
+  padding: 0.5rem;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+}
+.btn-icon.btn-sm { padding: 0.35rem; }
+
+/* ============================================================
+   ICON SYSTEM
+   ============================================================ */
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.icon-sm  { width: 16px; height: 16px; } /* Adjusted sizes */
+.icon-md  { width: 20px; height: 20px; }
+.icon-lg  { width: 24px; height: 24px; }
+.icon-xl  { width: 30px; height: 30px; }
+
+/* Icon in a circular container (more Notion-like) */
+.icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md); /* Square with rounded corners */
+  background: var(--color-primary-subtle);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+.icon-wrap-sm { width: 36px; height: 36px; } /* Adjusted sizes */
+.icon-wrap-md { width: 48px; height: 48px; }
+.icon-wrap-lg { width: 60px; height: 60px; }
+.icon-wrap-success { background: var(--color-success-subtle); color: var(--color-success); }
+.icon-wrap-warning { background: var(--color-warning-subtle); color: var(--color-warning); }
+.icon-wrap-danger  { background: var(--color-danger-subtle);  color: var(--color-danger); }
+
+/* ============================================================
+   BADGES / PILLS (Notion-like)
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm); /* Slightly less rounded than full pill */
+  font-size: 0.75rem; /* Slightly larger */
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: capitalize; /* Capitalize instead of uppercase */
+  white-space: nowrap;
+}
+
+.badge-blue    { background: var(--blue-50);   color: var(--blue-700);    border: 1px solid var(--blue-100); }
+.badge-green   { background: var(--green-50);  color: var(--green-700);   border: 1px solid var(--green-100); }
+.badge-yellow  { background: var(--yellow-50); color: var(--yellow-600);  border: 1px solid var(--yellow-100); }
+.badge-red     { background: var(--red-50);    color: var(--red-600);     border: 1px solid var(--red-100); }
+.badge-gray    { background: var(--gray-100);  color: var(--gray-600);    border: 1px solid var(--gray-200); } /* Adjusted gray badge */
+
+/* ============================================================
+   ALERTS (Notion-like)
+   ============================================================ */
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem; /* Increased padding */
+  border-radius: var(--radius-lg);
+  font-size: 0.9rem; /* Slightly larger font */
+  line-height: 1.5;
+  border: 1px solid;
+  margin-bottom: 1rem;
+  animation: alertIn var(--t-slow) var(--ease-out) both;
+}
+.alert svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; } /* Adjusted icon size/position */
+
+.alert-error   { background: var(--red-50);    border-color: var(--red-200); color: var(--red-600); }
+.alert-success { background: var(--green-50);  border-color: var(--green-200); color: var(--green-600); }
+.alert-info    { background: var(--blue-50);   border-color: var(--blue-200); color: var(--blue-700); }
+.alert-warning { background: var(--yellow-50); border-color: var(--yellow-200); color: var(--yellow-600); }
+
+@keyframes alertIn {
+  from { opacity: 0; transform: translateY(-8px); } /* Slightly more movement */
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   FORM ELEMENTS (Notion-like)
+   ============================================================ */
+
+.form-group { margin-bottom: 1.25rem; /* Increased margin */ }
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem; /* Slightly larger label font */
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem; /* Increased margin */
+  letter-spacing: 0.01em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 1rem; /* Adjusted padding */
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem; /* Slightly larger font */
+  line-height: 1.5;
+  transition:
+    border-color var(--t-fast) var(--ease),
+    box-shadow var(--t-fast) var(--ease);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--text-tertiary); }
+
+.form-group input:hover,
+.form-group select:hover { border-color: var(--border-strong); }
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 3px var(--color-primary-subtle); /* Focus ring */
+}
+
+.form-group input[type="file"] {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+/* Upload zone (more Notion-like) */
+.upload-zone {
+  border: 1px dashed var(--border-default); /* Softer dashed border */
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--t) var(--ease);
+  background: var(--surface-subtle);
+}
+.upload-zone:hover,
+.upload-zone.drag-over {
+  border-color: var(--blue-300);
+  background: var(--color-primary-subtle);
+}
+.upload-zone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+.upload-zone-inner { position: relative; }
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+
+.divider {
+  height: 1px;
+  background: var(--border-default);
+  margin: 1.75rem 0; /* Increased margin */
+}
+
+/* ============================================================
+   SIDEBAR LAYOUT SYSTEM (Notion-inspired)
+   ============================================================ */
+
+.layout-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--surface-page);
+}
+
+/* ── Sidebar ── */
+.app-sidebar {
+  width: var(--sidebar-width); /* Using variable for consistency */
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-card);
+  border-right: 1px solid var(--border-default);
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 50;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem; /* Adjusted gap */
+  padding: 1.25rem 1.2rem; /* Adjusted padding */
+  border-bottom: 1px solid var(--border-subtle); /* Subtle separator */
+  margin-bottom: 0.5rem;
+}
+.sidebar-brand-icon {
+  width: 32px; height: 32px; /* Larger icon */
+  background: var(--gray-900);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem; /* Larger font */
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.sidebar-brand-icon.admin { background: var(--blue-600); }
+.sidebar-brand-name {
+  font-size: 1rem; /* Larger font */
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.sidebar-brand-sub {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 0 0.75rem; /* Adjusted padding */
+  overflow-y: auto;
+}
+.sidebar-section-label {
+  font-size: 0.7rem; /* Slightly larger */
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 1.2rem 0.75rem 0.5rem; /* Adjusted padding */
+}
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem; /* Adjusted gap */
+  padding: 0.55rem 0.9rem; /* Adjusted padding */
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem; /* Adjusted font size */
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: background var(--t-fast) var(--ease), color var(--t-fast);
+  margin-bottom: 2px; /* Small separation */
+  position: relative;
+}
+.sidebar-nav-link:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.sidebar-nav-link.active {
+  background: var(--color-primary-subtle); /* Uses subtle primary blue */
+  color: var(--blue-700);
+  font-weight: 600;
+}
+.sidebar-nav-link svg {
+  width: 19px; height: 19px; /* Slightly larger icon */
+  flex-shrink: 0;
+  opacity: 0.75; /* Slightly less opaque */
+}
+.sidebar-nav-link.active svg { opacity: 1; color: var(--blue-600); }
+.sidebar-nav-link .nav-badge {
+  margin-left: auto;
+  background: var(--red-500);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  line-height: 1.4;
+}
+
+.sidebar-footer {
+  padding: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem; /* Adjusted gap */
+  padding: 0.6rem 0.7rem; /* Adjusted padding */
+  border-radius: var(--radius-md);
+  cursor: default;
+  transition: background var(--t-fast);
+}
+.sidebar-user:hover { background: var(--surface-hover); }
+.sidebar-avatar {
+  width: 32px; height: 32px; /* Larger avatar */
+  border-radius: var(--radius-full);
+  background: var(--blue-100);
+  color: var(--blue-700);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+.sidebar-user-info {
+  flex: 1;
+  min-width: 0;
+}
+.sidebar-user-name {
+  font-size: 0.825rem; /* Larger font */
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sidebar-user-role {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  text-transform: capitalize;
+}
+.sidebar-logout {
+  color: var(--text-tertiary);
+  transition: color var(--t-fast);
+  display: flex;
+  text-decoration: none;
+}
+.sidebar-logout:hover { color: var(--red-500); }
+.sidebar-logout svg { width: 16px; height: 16px; } /* Adjusted icon size */
+
+.sidebar-login-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Adjusted gap */
+  padding: 0.6rem 0.7rem; /* Adjusted padding */
+}
+.sidebar-login-btn {
+  display: block;
+  text-align: center;
+  padding: 0.5rem 0; /* Adjusted padding */
+  font-size: 0.85rem; /* Adjusted font size */
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.sidebar-login-btn.outline {
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  background: var(--surface-card);
+}
+.sidebar-login-btn.outline:hover { background: var(--surface-hover); }
+.sidebar-login-btn.filled {
+  color: #fff;
+  background: var(--gray-900);
+  border: 1px solid var(--gray-900);
+}
+.sidebar-login-btn.filled:hover { background: var(--gray-800); }
+
+/* ── Main Area ── */
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--surface-card);
+}
+
+.app-topbar {
+  height: 56px; /* Taller topbar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem; /* Adjusted padding */
+  border-bottom: 1px solid var(--border-default); /* Stronger border */
+  background: var(--surface-card); /* Solid background */
+  /* backdrop-filter: blur(10px); */ /* Removed for cleaner look */
+  /* -webkit-backdrop-filter: blur(10px); */
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  flex-shrink: 0;
+}
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.topbar-title {
+  font-size: 1rem; /* Larger title */
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem; /* Adjusted gap */
+}
+.topbar-link {
+  font-size: 0.8rem; /* Adjusted font size */
+  font-weight: 600;
+  color: var(--text-secondary); /* Softer link color */
+  text-decoration: none;
+  transition: color var(--t-fast), background var(--t-fast); /* Added background transition */
+  padding: 0.35rem 0.6rem; /* Adjusted padding */
+  border-radius: var(--radius-sm);
+}
+.topbar-link:hover { color: var(--text-primary); background: var(--surface-hover); text-decoration: none; }
+.topbar-notif {
+  position: relative;
+  display: flex;
+  padding: 0.4rem; /* Adjusted padding */
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+.topbar-notif:hover { background: var(--surface-hover); color: var(--text-primary); }
+.topbar-notif svg { width: 20px; height: 20px; } /* Larger icon */
+.topbar-notif-dot {
+  position: absolute;
+  top: 4px; right: 4px; /* Adjusted position */
+  width: 7px; height: 7px; /* Larger dot */
+  background: var(--red-500);
+  border-radius: 50%;
+  border: 1.5px solid var(--surface-card);
+}
+.topbar-sep {
+  width: 1px;
+  height: 20px; /* Taller separator */
+  background: var(--border-default);
+  margin: 0 0.4rem;
+}
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Adjusted gap */
+}
+.topbar-user-avatar {
+  width: 28px; height: 28px; /* Larger avatar */
+  border-radius: var(--radius-full);
+  background: var(--blue-100);
+  color: var(--blue-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+.topbar-user-name {
+  font-size: 0.85rem; /* Larger font */
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Mobile toggle */
+.mobile-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px; /* Larger toggle */
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background var(--t-fast);
+  padding: 0;
+}
+.mobile-toggle:hover { background: var(--surface-hover); }
+.mobile-toggle svg { width: 22px; height: 22px; } /* Larger icon */
+
+/* Sidebar overlay for mobile */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3); /* Slightly darker overlay */
+  backdrop-filter: blur(3px); /* Slightly more blur */
+  z-index: 45;
+}
+.sidebar-overlay.open { display: block; }
+
+.content-scroll {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--surface-page);
+}
+.content-container {
+  max-width: 76rem; /* Wider content area */
+  margin: 0 auto;
+  padding: 2rem; /* Increased padding */
+  padding-bottom: 5rem; /* Increased bottom padding */
+}
+
+/* ── Footer inside scroll area ── */
+.site-footer {
+  border-top: 1px solid var(--border-default);
+  padding: 1.5rem 2rem; /* Adjusted padding */
+  margin-top: 3rem; /* Increased margin */
+  background: var(--surface-card); /* Consistent with card background */
+}
+.footer-inner {
+  max-width: 76rem; /* Consistent with content area */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* Adjusted gap */
+}
+.footer-brand { display: flex; align-items: center; gap: 0.5rem; }
+.footer-copy { font-size: 0.75rem; color: var(--text-tertiary); margin: 0; }
+.logo-mark {
+  width: 24px; height: 24px; /* Larger logo mark */
+  background: var(--gray-900);
+  color: #fff;
+  border-radius: 6px; /* Slightly more rounded */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .app-sidebar {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    transform: translateX(-100%);
+    transition: transform 0.25s var(--ease);
+    z-index: 50;
+    box-shadow: none;
+  }
+  .app-sidebar.open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-xl);
+  }
+  .mobile-toggle { display: flex; }
+  .content-container { padding: 1.25rem; }
+  .app-topbar { padding: 0 1rem; }
+}
+@media (min-width: 769px) {
+  .sidebar-overlay { display: none !important; }
+}
+
+/* ============================================================
+   PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); } /* Slightly more movement */
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.content-container { animation: fadeUp 0.3s var(--ease-out) both; /* Slightly longer animation */ }
+
+.card, .glass-panel {
+  transition:
+    opacity 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out),
+    border-color var(--t) var(--ease),
+    box-shadow var(--t) var(--ease);
+}
+.card:not(.is-visible),
+.glass-panel:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(10px); /* Slightly more movement */
+}
+.card.is-visible,
+.glass-panel.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-in { animation: fadeIn 0.3s ease-out; }
+
+/* ── Misc backwards-compat ── */
+.nav-link-active {
+  background: var(--color-primary-subtle);
+  color: var(--blue-700);
+  font-weight: 600;
+}
+
+/* ── Admin pill link in topbar ── */
+.topbar-admin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.65rem; /* Adjusted padding */
+  background: var(--surface-subtle); /* Uses new subtle surface */
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem; /* Slightly larger */
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+.topbar-admin-link:hover { background: var(--surface-hover); color: var(--text-primary); text-decoration: none; }
+.topbar-admin-link svg { width: 14px; height: 14px; } /* Adjusted icon size */
