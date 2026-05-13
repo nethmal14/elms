@@ -1,0 +1,75 @@
+/* Hero Section — Midnight Luxe */
+.hero {
+    position: relative;
+    padding: 4rem 0 3rem;
+    overflow: hidden;
+}
+.hero-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+}
+.hero-visual {
+    position: absolute;
+    top: 50%; right: -100px;
+    transform: translateY(-50%);
+    width: 450px; height: 350px;
+    background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%);
+    border-radius: var(--radius-full);
+    z-index: 1;
+    pointer-events: none;
+    filter: blur(40px);
+}
+.hero h1 { margin-bottom: 1.25rem; }
+.hero p { font-size: 1.1rem; margin-bottom: 2rem; max-width: 500px; color: var(--text-secondary); }
+
+/* Features */
+.feature-icon-box {
+    width: 48px; height: 48px;
+    border-radius: var(--radius-md);
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--blue-400);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.3);
+}
+
+/* Tutor Section */
+.tutor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .tutor-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+.tutor-image-wrap {
+    position: relative;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    box-shadow: var(--shadow-xl), var(--glow-primary);
+}
+.tutor-image-wrap::after {
+    content: ''; position: absolute; inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+    border-radius: inherit; pointer-events: none;
+}
+.tutor-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Courses */
+.grade-section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+.grade-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--blue-300);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  white-space: nowrap;
+}
+.grade-rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border-strong), transparent); }

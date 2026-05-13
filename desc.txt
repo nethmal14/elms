@@ -1,0 +1,58 @@
+# Elms Learning Management System (LMS) - Project Overview
+
+## Purpose
+Elms is a comprehensive Learning Management System designed for educational institutions and individual tutors. It provides a platform for managing student enrollments, course materials (videos, PDFs), live classes, payments, and past papers. The system focuses on a minimalist, premium "Notion-style" design with responsive interfaces for both students and administrators.
+
+## Core Features
+- **Student Management**: Custom 5-digit student IDs, profile photo uploads, and grade-based organization.
+- **Course/Subject Management**: Hierarchical structure: Grade > Subject > Unit > Material.
+- **Content Delivery**: Supports YouTube recordings, PDF materials, and live Zoom class links.
+- **Payment System**: Subscription-based with a configurable grace period. Students upload payment proofs (receipts) which admins verify.
+- **Past Paper System**: Admins can upload past papers with deadlines. Students submit their work (PDF). Admins mark submissions and re-upload the marked versions.
+- **Dynamic Settings**: Site-wide configuration for branding, hero sections, tutor bios, and feature toggles (e.g., enable/disable past papers).
+- **Responsive Design**: Mobile-optimized layouts with hamburger menus and glassmorphism aesthetics.
+
+## Technical Stack
+- **Backend**: PHP (Vanilla) with PDO for secure database interactions.
+- **Database**: MySQL.
+- **Frontend**: HTML5, Vanilla CSS3 (Custom design system), JavaScript (ES6+).
+- **Auth**: Session-based authentication with role-based access control (Admin/Student).
+
+## Project Structure
+- `/admin`: Administrative dashboard and management modules.
+    - `curriculum.php`: Manage grades, subjects, units, and materials.
+    - `students.php`: Manage student accounts and profile details.
+    - `payments.php`: Verify student payment proofs.
+    - `past_papers.php`: Manage paper uploads and student submissions.
+    - `settings.php`: Global site configuration.
+- `/includes`: Shared UI components and layout fragments.
+    - `header.php`: Navigation and responsive menu.
+    - `footer.php`: Global footer.
+- `/css`:
+    - `style.css`: The main design system (colors, typography, components).
+- `/uploads`: Storage for user-generated content.
+    - `/profiles`: Student profile photos.
+    - `/images`: General images (course thumbnails, etc.).
+    - `/papers`: Admin-uploaded past papers.
+    - `/submissions`: Student-submitted work.
+    - `/marked`: Marked papers returned to students.
+- Root Files:
+    - `index.php`: Landing page with hero section and course browsing.
+    - `dashboard.php`: Student's central hub.
+    - `subject.php`: Subject details and materials view.
+    - `past_papers.php`: Student view for downloading and submitting papers.
+    - `db.php`: Database connection handler.
+    - `setup.php`: Automated installation and schema initialization script.
+
+## Database Schema Highlights
+- `users`: Stores credentials, roles, student IDs, and profile paths.
+- `subjects`/`units`/`materials`: The core educational content hierarchy.
+- `payments`: Tracks status (pending/approved/rejected) and proof images.
+- `settings`: Key-value store for global site configuration.
+- `past_papers`/`paper_submissions`: Manages the examination workflow.
+
+## Installation / Setup
+1. Point a web server to the root directory.
+2. Access `setup.php` in the browser.
+3. Provide MySQL credentials.
+4. The system will automatically create the database, tables, default settings, and necessary upload directories.

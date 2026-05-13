@@ -1,0 +1,62 @@
+/* Student ID Card shine effect - Kept completely intact as per instructions */
+.nic-card {
+  position: relative; overflow: hidden; cursor: default;
+  background: var(--gray-900); border-radius: var(--radius-2xl);
+  color: #fff; min-height: 260px; border: none;
+}
+.nic-card::after {
+  content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%);
+  transform: skewX(-15deg); transition: left 0.7s var(--ease); pointer-events: none;
+}
+.nic-card:hover::after { left: 150%; }
+
+.subject-card { position: relative; overflow: hidden; padding-left: 1.75rem !important; }
+.subject-card::before {
+  content: ''; position: absolute; left: 0; top: 20%; bottom: 20%; width: 4px;
+  background: var(--blue-500); border-radius: 0 4px 4px 0; transition: all var(--t);
+  box-shadow: 0 0 10px var(--blue-500);
+}
+.subject-card:hover::before { top: 10%; bottom: 10%; }
+
+/* Notifications */
+.notif-row {
+  display: flex; gap: 1.25rem; padding: 1.25rem;
+  border-radius: var(--radius-xl); background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  transition: all var(--t-fast) var(--ease);
+  position: relative; overflow: hidden;
+  backdrop-filter: blur(16px);
+}
+.notif-row:hover {
+  background: var(--surface-hover); border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: var(--shadow-md);
+}
+.notif-row.unread::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: var(--blue-500); box-shadow: 0 0 10px var(--blue-500);
+}
+
+.notif-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(99, 102, 241, 0.15); color: var(--blue-400);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.3);
+}
+
+.notif-dot {
+  width: 10px; height: 10px; background: var(--blue-500); border-radius: 50%;
+  box-shadow: 0 0 8px var(--blue-500);
+}
+
+/* Payment */
+.payment-instructions-block {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(12px);
+}
+.payment-instructions-block h4 { color: var(--blue-300); margin-bottom: 1rem; }
+.instruction-text { font-size: 1rem; color: var(--gray-300); line-height: 1.7; }
