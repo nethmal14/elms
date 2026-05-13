@@ -1,0 +1,94 @@
+/* --- Learning & Subject Specific Styles --- */
+.learning-header {
+    background: var(--surface-color);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 12px;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.material-list {
+    list-style: none;
+    padding: 0;
+}
+
+.material-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: var(--bg-color);
+    transition: background 0.2s;
+}
+
+.material-item:hover {
+    background: var(--surface-color);
+}
+
+.material-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.material-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    background: var(--surface-color);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background: var(--bg-color);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}

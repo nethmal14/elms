@@ -1,0 +1,144 @@
+/* --- Home Page Specific Styles --- */
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-visual-grid {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(var(--border-color) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.hero-badge-dot {
+    width: 8px; height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+.hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+}
+
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Features */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-eyebrow {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.feature-icon-box {
+    width: 48px; height: 48px;
+    background: var(--secondary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+.feature-icon-box svg { width: 24px; height: 24px; }
+
+/* Tutor Grid */
+.tutor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.tutor-image-wrap {
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.tutor-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.tutor-stat-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.tutor-stat-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* CTA Section */
+.cta-section {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .tutor-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-cta, .flex-center { flex-direction: column; }
+}

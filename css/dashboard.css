@@ -1,0 +1,62 @@
+/* --- Dashboard Specific Styles --- */
+.nic-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--surface-color) 0%, var(--bg-color) 100%);
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subject-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.badge-green { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+.badge-yellow { background: rgba(234, 179, 8, 0.15); color: #eab308; }
+.badge-blue { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+.badge-red { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+}
+
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.alert-info {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+.btn-ghost:hover {
+    background: var(--surface-color);
+}
+.btn-sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+}
