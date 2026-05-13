@@ -1,62 +1,132 @@
-/* Student ID Card shine effect - Kept completely intact as per instructions */
+/* ================================================================
+   DASHBOARD CSS — ELMS v3.0
+   ================================================================ */
+
+/* ── Student ID Card ── */
 .nic-card {
   position: relative; overflow: hidden; cursor: default;
-  background: var(--gray-900); border-radius: var(--radius-2xl);
-  color: #fff; min-height: 260px; border: none;
+  border-radius: var(--r-2xl) !important;
+  color: #fff; min-height: 240px;
+  padding: 0 !important;
 }
+[data-theme="dark"] .nic-card {
+  background: linear-gradient(145deg, #0d0b2e 0%, #151040 40%, #0a1a3a 100%);
+  border: 1px solid rgba(99,102,241,0.25) !important;
+  box-shadow: var(--shadow-xl), 0 0 30px rgba(99,102,241,0.15) !important;
+}
+[data-theme="light"] .nic-card {
+  background: linear-gradient(145deg, #1e1b4b 0%, #2d2980 40%, #1a3060 100%);
+  border: none !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* ID card shimmer */
 .nic-card::after {
   content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
-  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%);
-  transform: skewX(-15deg); transition: left 0.7s var(--ease); pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.07) 50%, transparent 65%);
+  transform: skewX(-15deg);
+  transition: left 0.9s var(--ease);
+  pointer-events: none;
 }
 .nic-card:hover::after { left: 150%; }
 
-.subject-card { position: relative; overflow: hidden; padding-left: 1.75rem !important; }
-.subject-card::before {
-  content: ''; position: absolute; left: 0; top: 20%; bottom: 20%; width: 4px;
-  background: var(--blue-500); border-radius: 0 4px 4px 0; transition: all var(--t);
-  box-shadow: 0 0 10px var(--blue-500);
+/* Top color strip */
+.nic-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--indigo-400), var(--cyan-400), var(--emerald-400));
+  z-index: 3; pointer-events: none;
 }
-.subject-card:hover::before { top: 10%; bottom: 10%; }
 
-/* Notifications */
+/* ── Subject Cards ── */
+.subject-card { position: relative; overflow: hidden; }
+.subject-card::after {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--indigo-500), var(--cyan-500));
+  border-radius: 0 3px 3px 0;
+  transition: all var(--t);
+  box-shadow: 0 0 8px rgba(99,102,241,0.4);
+}
+.subject-card:hover::after { box-shadow: 0 0 16px rgba(99,102,241,0.6); }
+
+/* ── Notification rows ── */
 .notif-row {
-  display: flex; gap: 1.25rem; padding: 1.25rem;
-  border-radius: var(--radius-xl); background: var(--surface-card);
-  border: 1px solid var(--border-default);
+  display: flex; gap: 1.25rem; padding: 1.2rem 1.4rem;
+  border-radius: var(--r-xl);
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
   transition: all var(--t-fast) var(--ease);
   position: relative; overflow: hidden;
-  backdrop-filter: blur(16px);
 }
+[data-theme="dark"] .notif-row { backdrop-filter: blur(16px); }
 .notif-row:hover {
-  background: var(--surface-hover); border-color: rgba(99, 102, 241, 0.4);
-  box-shadow: var(--shadow-md);
+  background: var(--surface-hover);
+  border-color: var(--primary-border);
+  box-shadow: var(--shadow-sm);
 }
 .notif-row.unread::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-  background: var(--blue-500); box-shadow: 0 0 10px var(--blue-500);
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--indigo-500), var(--cyan-500));
+  box-shadow: 0 0 10px rgba(99,102,241,0.4);
 }
-
 .notif-icon {
-  width: 48px; height: 48px; border-radius: 50%;
-  background: rgba(99, 102, 241, 0.15); color: var(--blue-400);
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--primary-subtle);
+  color: var(--indigo-400);
   display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.3);
+  flex-shrink: 0;
+  border: 1px solid var(--primary-border);
 }
-
 .notif-dot {
-  width: 10px; height: 10px; background: var(--blue-500); border-radius: 50%;
-  box-shadow: 0 0 8px var(--blue-500);
+  width: 9px; height: 9px;
+  background: var(--indigo-500); border-radius: 50%;
+  box-shadow: 0 0 8px var(--indigo-500);
 }
 
-/* Payment */
-.payment-instructions-block {
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: var(--radius-xl);
-  padding: 2rem;
-  margin-bottom: 2rem;
-  backdrop-filter: blur(12px);
+/* ── Performance Chart Card ── */
+.perf-card-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.25rem;
 }
-.payment-instructions-block h4 { color: var(--blue-300); margin-bottom: 1rem; }
-.instruction-text { font-size: 1rem; color: var(--gray-300); line-height: 1.7; }
+
+/* ── Payment Block ── */
+.payment-instructions-block {
+  background: var(--primary-subtle);
+  border: 1px solid var(--primary-border);
+  border-radius: var(--r-xl);
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+}
+.payment-instructions-block h4 { color: var(--indigo-300); margin-bottom: 0.9rem; }
+[data-theme="light"] .payment-instructions-block h4 { color: var(--indigo-600); }
+.instruction-text {
+  font-size: 0.95rem;
+  color: var(--text-2); line-height: 1.75;
+}
+
+/* ── Papers available ribbon ── */
+.paper-ribbon {
+  position: absolute; top: 0; right: 0;
+  background: linear-gradient(135deg, var(--indigo-500), var(--cyan-500));
+  color: #fff;
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 0.25rem 0.6rem 0.25rem 0.8rem;
+  border-radius: 0 var(--r-xl) 0 var(--r-lg);
+}
+
+/* ── Stats row cards ── */
+.stat-mini-card {
+  padding: 1.25rem 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.stat-mini-icon {
+  width: 44px; height: 44px; border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.stat-mini-icon.indigo { background: var(--primary-subtle); color: var(--indigo-400); border: 1px solid var(--primary-border); }
+.stat-mini-icon.emerald { background: rgba(16,185,129,0.12); color: var(--emerald-400); border: 1px solid rgba(16,185,129,0.28); }
+.stat-mini-icon.amber { background: rgba(245,158,11,0.12); color: var(--amber-400); border: 1px solid rgba(245,158,11,0.28); }
+.stat-mini-icon.cyan { background: rgba(6,182,212,0.12); color: var(--cyan-400); border: 1px solid rgba(6,182,212,0.28); }
+.stat-mini-num { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--text-1); line-height: 1; }
+.stat-mini-label { font-size: 0.78rem; color: var(--text-3); font-weight: 500; margin-top: 2px; }

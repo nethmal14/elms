@@ -56,14 +56,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
+    <script>
+    (function() {
+        try {
+            var t = localStorage.getItem('elms-theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        } catch(e) {}
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - <?= htmlspecialchars($settings['site_name'] ?? 'Elms') ?></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= SITE_ROOT ?>css/style.css">
     <link rel="stylesheet" href="<?= SITE_ROOT ?>css/auth.css">
 
@@ -72,16 +78,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="auth-page">
     <div class="auth-panel-left">
-        <h2>Unlock Your Potential</h2>
-        <p>Access your courses, track your progress, and join our community of lifelong learners.</p>
+        <div class="auth-geo">
+            <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2"><circle cx="50" cy="50" r="40"/><path d="M10 50l40-40 40 40-40 40z"/></svg>
+        </div>
+        <div class="auth-panel-content">
+            <a href="index.php" class="auth-panel-logo">
+                <div class="auth-panel-logo-mark">E</div>
+                <div class="auth-panel-logo-name"><?= htmlspecialchars($settings['site_name'] ?? 'Elms') ?></div>
+            </a>
+            <h2 class="auth-left-heading">Welcome to<br><span>Your Learning Hub</span></h2>
+            <p>Access your courses, track your progress, and join our community of lifelong learners.</p>
+            <ul class="auth-feature-list">
+                <li class="auth-feature-item"><div class="auth-feature-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div> Seamless course access</li>
+                <li class="auth-feature-item"><div class="auth-feature-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div> Real-time progress tracking</li>
+            </ul>
+        </div>
     </div>
     
     <div class="auth-panel-right">
+        <!-- Theme Toggle -->
+        <button class="auth-theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+            <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+        </button>
+        <script>
+        function toggleTheme() {
+            var el = document.documentElement;
+            var current = el.getAttribute('data-theme');
+            var next = current === 'dark' ? 'light' : 'dark';
+            el.setAttribute('data-theme', next);
+            localStorage.setItem('elms-theme', next);
+        }
+        </script>
+
         <div class="auth-form-box">
-            <a href="index.php" class="header-logo mb-8" style="display: inline-flex;">
+            <div class="auth-logo mb-6" style="display: inline-flex;">
               <div class="logo-mark">E</div>
               <span class="logo-text"><?= htmlspecialchars($settings['site_name'] ?? 'Elms') ?></span>
-            </a>
+            </div>
             
             <h1>Welcome back</h1>
             <p class="auth-subtitle">Please enter your details to sign in.</p>
