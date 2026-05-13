@@ -63,12 +63,9 @@ $allStmt = $pdo->prepare("SELECT id, title, youtube_id FROM recordings WHERE sub
 $allStmt->execute([$subject_id]);
 $all_recordings = $allStmt->fetchAll();
 
+$extra_css = 'learning.css';
 require_once __DIR__ . '/includes/header.php';
 ?>
-
-<link rel="stylesheet" href="<?= SITE_ROOT ?>css/learning.css">
-
-
 <main class="container py-8">
     <div class="mb-6">
         <a href="subject.php?id=<?= $subject_id ?>" class="btn btn-ghost btn-sm btn-back-link">

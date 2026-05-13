@@ -39,6 +39,9 @@ if (isset($_SESSION['user_id'])) {
     <!-- Preload and load main stylesheet -->
     <link rel="preload" href="<?= SITE_ROOT ?>css/style.css" as="style">
     <link rel="stylesheet" href="<?= SITE_ROOT ?>css/style.css">
+    <?php if (!empty($extra_css)): ?>
+    <link rel="stylesheet" href="<?= SITE_ROOT ?>css/<?= htmlspecialchars($extra_css) ?>">
+    <?php endif; ?>
     <?= $extra_head ?? '' ?>
     <script>
     (function(){

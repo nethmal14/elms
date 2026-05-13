@@ -57,12 +57,9 @@ $stmt = $pdo->prepare("SELECT s.id, s.name, s.description, g.name as grade_name 
 $stmt->execute([$subject_id]);
 $subject = $stmt->fetch();
 
+$extra_css = 'learning.css';
 require_once __DIR__ . '/includes/header.php';
 ?>
-
-<link rel="stylesheet" href="<?= SITE_ROOT ?>css/learning.css">
-
-
 <main class="container py-8">
     
     <div class="mb-8">

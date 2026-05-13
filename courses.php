@@ -1,4 +1,5 @@
 <?php
+$extra_css = 'home.css';
 require_once __DIR__ . '/includes/header.php';
 
 // Fetch all grades
@@ -6,7 +7,6 @@ $stmt = $pdo->query("SELECT * FROM grades ORDER BY name ASC");
 $grades = $stmt->fetchAll();
 ?>
 
-<link rel="stylesheet" href="<?= SITE_ROOT ?>css/home.css">
 
 
 <main class="container py-12">

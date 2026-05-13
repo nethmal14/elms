@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/db.php';
+$extra_css = 'learning.css';
 require_once __DIR__ . '/includes/header.php';
 
 $pdo = getDB();
@@ -49,10 +50,6 @@ foreach ($active_subjects as $sub_info) {
     ];
 }
 ?>
-
-<link rel="stylesheet" href="<?= SITE_ROOT ?>css/learning.css">
-
-
 <main class="container py-12">
     <div class="mb-12 text-center">
         <div class="icon-wrap icon-wrap-lg mb-4" style="margin: 0 auto;">

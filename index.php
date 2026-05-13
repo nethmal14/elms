@@ -1,4 +1,5 @@
 <?php
+$extra_css = 'home.css';
 require_once __DIR__ . '/includes/header.php';
 
 // Get Settings for landing page
@@ -32,7 +33,6 @@ if (!empty($tenant['custom_homepage_html'])):
 
 else: ?>
 
-<link rel="stylesheet" href="<?= SITE_ROOT ?>css/home.css">
 
 
 <!-- Hero Section -->

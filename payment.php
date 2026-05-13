@@ -117,12 +117,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['proof'])) {
 $iStmt = $pdo->query("SELECT setting_value FROM settings WHERE setting_key = 'payment_instructions'");
 $instructions = $iStmt->fetchColumn();
 
+$extra_css = 'dashboard.css';
 require_once __DIR__ . '/includes/header.php';
 ?>
-
-<link rel="stylesheet" href="<?= SITE_ROOT ?>css/dashboard.css">
-
-
 <main class="container py-8">
     <div style="max-width: 580px; margin: 0 auto;">
         <a href="dashboard.php" class="btn btn-ghost btn-sm mb-6" style="padding-left: 0;">

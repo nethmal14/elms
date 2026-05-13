@@ -108,12 +108,9 @@ $statsStmt = $pdo->prepare("
 $statsStmt->execute([$user_id]);
 $performance_data = $statsStmt->fetchAll();
 
+$extra_css = 'dashboard.css';
 require_once __DIR__ . '/includes/header.php';
 ?>
-
-<link rel="stylesheet" href="<?= SITE_ROOT ?>css/dashboard.css">
-
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
 

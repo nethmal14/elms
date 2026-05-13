@@ -96,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     }
 }
 
+$extra_css = 'learning.css';
 require_once __DIR__ . '/includes/header.php';
 
 // Access logic
@@ -136,10 +137,6 @@ if (empty($approved_subject_ids)) {
     $papers = $papersStmt->fetchAll();
 }
 ?>
-
-<link rel="stylesheet" href="<?= SITE_ROOT ?>css/learning.css">
-
-
 <main class="container py-8">
     <div class="mb-8">
         <h1>Academic Papers</h1>

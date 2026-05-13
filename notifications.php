@@ -23,12 +23,9 @@ $allNotifs = $stmt->fetchAll();
 // Mark as read when viewing
 $pdo->prepare("UPDATE notifications SET is_read = 1 WHERE user_id = ? AND is_read = 0")->execute([$u_id]);
 
+$extra_css = 'dashboard.css';
 require_once __DIR__ . '/includes/header.php';
 ?>
-
-<link rel="stylesheet" href="<?= SITE_ROOT ?>css/dashboard.css">
-
-
 <main class="container py-12">
     <div class="flex-between mb-10">
         <div>
