@@ -71,8 +71,10 @@ $notif_count = $nStmt->fetchColumn();
     <link rel="stylesheet" href="<?= SITE_ROOT ?>css/admin.css">
 
     <script>
-        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    (function(){
+      var saved = localStorage.getItem('elms-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
     </script>
 </head>
 <body>
@@ -215,7 +217,7 @@ $notif_count = $nStmt->fetchColumn();
     function toggleTheme() {
         const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', currentTheme);
-        localStorage.setItem('theme', currentTheme);
+        localStorage.setItem('elms-theme', currentTheme);
         updateThemeIcon();
     }
     updateThemeIcon();

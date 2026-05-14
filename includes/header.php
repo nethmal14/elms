@@ -45,7 +45,7 @@ if (isset($_SESSION['user_id'])) {
     <?= $extra_head ?? '' ?>
     <script>
     (function(){
-      var saved = localStorage.getItem('elms-theme');
+      var saved = localStorage.getItem('elms-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
     })();
     </script>
